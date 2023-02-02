@@ -12,11 +12,11 @@ This example creates a Fargate service with an Application Load Balancer (ALB). 
 - A domain name registered with Route53 with a hosted zone.
 
 # Steps
-Add properties to the stack to specify the domain name and hosted zone.
+Add properties to the stack in bin/main.ts to configure the certificate, hosted zone, and A record.
 ```typescript
 new HttpsFargateApplicationLoadBalancedServiceStack(app, 'HttpsFargateApplicationLoadBalancedServiceStack', {
   certificateDomainName: "*.example.com",
-  hostedZoneName: "aws.example.com",
+  hostedZoneName: "example.com",
   hostedZoneId: "Z000000000000",
   aRecordName: "aws.example.com",
 });
@@ -30,7 +30,7 @@ new HttpsFargateApplicationLoadBalancedServiceStack(app, 'HttpsFargateApplicatio
 
 - aRecordName: The name of the A record in Route53. This is the name of the A record that will be created. For example, if the domain name is example.com, then the A record name is example.com. 
 
-**The A record must not already exist in Route53.**, otherwise the stack will fail to deploy. It's best to try this first on a subdomain, for example, aws.example.com.
+**The A record must not already exist in Route53.**, it's best to try this first on a subdomain, for example, aws.example.com or remove existing A records with same name before running this example.
 
 # Deploy
 Run the following commands to deploy the stack.
