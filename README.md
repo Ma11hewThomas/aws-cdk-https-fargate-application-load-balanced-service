@@ -39,6 +39,8 @@ npm install
 npx aws-cdk deploy
 ```
 
+Visit the aRecordName in a browser to see the service with SSL, for example, https://aws.example.com.
+
 # Clean up
 Run the following command to delete the stack.
 ```bash
